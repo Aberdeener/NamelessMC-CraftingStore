@@ -5,8 +5,8 @@ class LanguageEnum
     public const CRAFTING_STORE = 'CraftingStore';
     public const NO_PACKAGES = 'noPackages';
     public const SETTINGS = 'settings';
-    public const SERVER_KEY = 'serverKey';
-    public const SERVER_KEY_INFO = 'serverKeyInfo';
+    public const SERVER_TOKEN = 'serverToken';
+    public const SERVER_TOKEN_INFO = 'serverTokenInfo';
     public const ALLOW_GUESTS = 'allowGuests';
     public const STORE_INDEX_CONTENT = 'storeIndexContent';
     public const STORE_PATH = 'storePath';
