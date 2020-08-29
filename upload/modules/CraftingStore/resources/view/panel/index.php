@@ -38,7 +38,7 @@ if (isset($_POST) && !empty($_POST)) {
 
     if (Token::check(Input::get('token'))) {
         try {
-            $settingRepository->createOrUpdateByName(SettingEnum::SERVER_KEY, Output::getClean(Input::get(SettingEnum::SERVER_KEY)));
+            $settingRepository->createOrUpdateByName(SettingEnum::SERVER_TOKEN, Output::getClean(Input::get(SettingEnum::SERVER_TOKEN)));
         } catch (Exception $e) {
             $errors[] = $e->getMessage();
         }
@@ -90,7 +90,7 @@ if (isset($errors) && count($errors)) {
     ]);
 }
 
-$serverKey = $settingRepository->firstValueByName(SettingEnum::SERVER_KEY, '');
+$serverToken = $settingRepository->firstValueByName(SettingEnum::SERVER_TOKEN, '');
 $storeIndexContent = $settingRepository->firstValueByName(SettingEnum::STORE_CONTENT, '');
 $storePath = $settingRepository->firstValueByName(SettingEnum::STORE_PATH, '/store');
 
@@ -109,9 +109,9 @@ $smarty->assign([
     'SUBMIT' => $language->get('general', 'submit'),
     'SETTINGS' => $craftingStoreLanguage->get('language', LanguageEnum::SETTINGS),
     'INFO' => $language->get('general', 'info'),
-    'SERVER_KEY' => $craftingStoreLanguage->get('language', LanguageEnum::SERVER_KEY),
-    'SERVER_KEY_INFO' => $craftingStoreLanguage->get('language', LanguageEnum::SERVER_KEY_INFO),
-    'SERVER_KEY_VALUE' => $serverKey,
+    'SERVER_TOKEN' => $craftingStoreLanguage->get('language', LanguageEnum::SERVER_TOKEN),
+    'SERVER_TOKEN_INFO' => $craftingStoreLanguage->get('language', LanguageEnum::SERVER_TOKEN_INFO),
+    'SERVER_TOKEN_VALUE' => $serverToken,
     'STORE_INDEX_CONTENT' => $craftingStoreLanguage->get('language', LanguageEnum::STORE_INDEX_CONTENT),
     'STORE_INDEX_CONTENT_VALUE' => $storeIndexContent,
     'STORE_PATH' => $craftingStoreLanguage->get('language', LanguageEnum::STORE_PATH),
